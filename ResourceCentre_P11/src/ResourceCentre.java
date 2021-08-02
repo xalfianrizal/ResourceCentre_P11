@@ -29,8 +29,7 @@ public class ResourceCentre {
 				// Add a new item
 				ResourceCentre.setHeader("ADD");			
 				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				printOptions();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -52,8 +51,7 @@ public class ResourceCentre {
 				// Loan item
 				ResourceCentre.setHeader("LOAN");			
 				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				printOptions();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -71,8 +69,7 @@ public class ResourceCentre {
 				// Return item
 				ResourceCentre.setHeader("RETURN");				
 				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				printOptions();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 				if (itemType == 1) {
@@ -93,6 +90,11 @@ public class ResourceCentre {
 
 		}
 
+	}
+
+	private static void printOptions() {
+		System.out.println("1. Camcorder");
+		System.out.println("2. Chromebook");
 	}
 
 	public static void menu() {
@@ -196,7 +198,7 @@ public class ResourceCentre {
 		System.out.println("Chromebook added");
 	}
 	
-	//================================= Option 3 Loan (CURD- Update) =================================
+	//================================= Option 3 Loan (CRUD- Update) =================================
 	public static boolean doLoanCamcorder(ArrayList<Camcorder> camcorderList, String tag, String dueDate) {
 		
 		boolean isLoaned = false;
