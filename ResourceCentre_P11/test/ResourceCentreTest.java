@@ -114,22 +114,22 @@ public class ResourceCentreTest {
 
 	@Test
 	public void doLoanCamcorderTest() {
-		//boundary
+		//Test if there is a valid Camcorder ArrayList
 		assertNotNull("test if there is valid Camcorder arraylist to loan from", camcorderList);
 		
 		ResourceCentre.addCamcorder(camcorderList, cc1);
-		// normal
+		//Test if the camCorder is true to loan.
 		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
 		assertTrue("Test if an available item is ok to loan?", ok);
-		//error condition
+		//After loaning, test if the item is still available to loan.
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
 		assertFalse("Test if an same item is NOT ok to loan again?", ok);	
-		//error condition
+		//Test that after loaning and making it unavailable, is it NOT ok to loan the item?
 		ResourceCentre.addCamcorder(camcorderList, cc2);	
 		cc2.setIsAvailable(false);
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020" );
 		assertFalse("Test that un-available item is NOT ok to loan?", ok);
-		//error condition
+		//Test that if adding, will it make it not able to loan?
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
 		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
 		
