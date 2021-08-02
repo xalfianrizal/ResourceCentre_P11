@@ -145,12 +145,7 @@ public class ResourceCentre {
 		String output = "";
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
-
-			Chromebook chromebook = chromebookList.get(i);
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebook.getAssetTag(),
-					chromebook.getDescription(), 
-					ResourceCentre.showAvailability(chromebook.getIsAvailable()),
-					chromebook.getDueDate(),chromebook.getOs());
+			output += String.format("%-84s\n", chromebookList.get(i).toString());
 		}
 		return output;
 	}
